@@ -4,7 +4,7 @@ from cert import Certificate
 import time
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--ipa',  '--ipa', help='ipa to modify', required=True)
+parser.add_argument('-ipa',  '--ipa', help='ipa to modify', required=True)
 parser.add_argument('-cert', '--proxycertificate', help='proxy certificate to replace the defaults with', required=True)
 
 args = parser.parse_args()

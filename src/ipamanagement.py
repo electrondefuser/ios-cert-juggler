@@ -3,6 +3,7 @@ import tempfile
 import subprocess
 import shutil
 from cert import Certificate
+import time
 
 class IPAManagement:
     def __init__(self, path, cert, inputformat) -> None:
@@ -55,17 +56,31 @@ class IPAManagement:
 
             if self._informat == "DER":
                 if c.isPem():
+                    print ("[+] Converting certificate: " + cert + " to DER format")
+                    time.sleep (1)
+                    print ("[+] Copying certificate: " + cert)
+
                     write_path = self._temp + "/ipa_payload/converted_certs/" + cert
                     c.der_to_pem (self._cert, write_path)
 
                     shutil.copy (write_path, os.getcwd())
                 else:
+                    print ("[+] Copying certificate: " + cert)
+                    time.sleep (1)
+
                     shutil.copy (proxy_cert, os.getcwd() + "/" + cert)
             
             if self._informat == "PEM":
                 if c.isPem():
+                    print ("[+] Copying certificate: " + cert)
+                    time.sleep (1)
+
                     shutil.copy (proxy_cert, os.getcwd() + "/" + cert)
                 else:
+                    print ("[+] Converting certificate: " + cert + " to PEM format")
+                    time.sleep (1)
+                    
+                    print ("[+] Copying certificate: " + cert)
                     write_path = self._temp + "/ipa_payload/converted_certs/" + cert
                     c.pem_to_der (self._cert, write_path)
                     
