@@ -1,5 +1,5 @@
 # iOS Certificate Juggler
-ipa-cert-juggler is a simple command line utility which helps you quickly replace all SSL certificates used for pinning within an iOS application
+iOS Certificate Juggler (ipa-cert-juggler) is a simple command line utility which helps you quickly replace all SSL certificates used for pinning within an iOS application
 with a single command. 
 
 # Features
